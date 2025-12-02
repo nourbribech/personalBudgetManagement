@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f8f9fa;">
+
+    <!-- HEADER -->
+    <top>
+        <VBox spacing="5" style="-fx-padding: 20;">
+            <Label text="Historique des Transactions"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #47b14f;" />
+            <Label text="Consultez, filtrez ou exportez vos transactions"
+                   style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        </VBox>
+    </top>
+
+    <!-- FILTER BAR -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 15;">
+
+            <HBox spacing="15" style="-fx-alignment:CENTER_LEFT;">
+                <VBox spacing="5">
+                        <Label text="Type" style="-fx-text-fill: #333;" />
+                        <ComboBox fx:id="typeFilterCombo" prefWidth="150"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Catégorie" style="-fx-text-fill: #333;" />
+                    <ComboBox fx:id="categoryFilterCombo" prefWidth="150"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Date début" style="-fx-text-fill: #333;" />
+                    <DatePicker fx:id="startDateFilter" prefWidth="140"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Date fin" style="-fx-text-fill: #333;" />
+                    <DatePicker fx:id="endDateFilter" prefWidth="140"/>
+                </VBox>
+
+                <Button text="Filtrer"
+                        fx:id="applyFilterButton"
+                        style="-fx-background-color: #47b14f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 8 16;" />
+
+                <Button text="Réinitialiser"
+                        fx:id="resetFilterButton"
+                        style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 8 16;" />
+            </HBox>
+
+            <!-- TABLE -->
+            <TableView fx:id="transactionTable"
+                       prefHeight="380"
+                       style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5;">
+                <columns>
+                    <TableColumn text="Date" prefWidth="110"/>
+                    <TableColumn text="Description" prefWidth="200"/>
+                    <TableColumn text="Catégorie" prefWidth="140"/>
+                    <TableColumn text="Type" prefWidth="100"/>
+                    <TableColumn text="Montant" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <!-- BOTTOM BUTTONS -->
+    <bottom>
+        <HBox spacing="15"
+              style="-fx-padding: 20; -fx-alignment: CENTER_RIGHT;">
+
+            <Button text="Exporter CSV"
+                    fx:id="exportButton"
+                    style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+
+            <Button text="Supprimer"
+                    fx:id="deleteTransactionButton"
+                    style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+
+            <Button text="Fermer"
+                    fx:id="closeButton"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

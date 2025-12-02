@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f8f9fa;">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label text="Ajouter un compte"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #47b14f;" />
+            <Label text="Créez un nouveau compte courant ou épargne"
+                   style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-border-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 20;">
+
+                <!-- Account Type -->
+                <VBox spacing="8">
+                    <Label text="Type de compte *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <ComboBox fx:id="accountTypeCombo"
+                              style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                              prefWidth="300" />
+                </VBox>
+
+                <!-- Account Name -->
+                <VBox spacing="8">
+                    <Label text="Nom du compte *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <TextField fx:id="accountNameField"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               promptText="Nom du compte..."
+                               prefWidth="300" />
+                </VBox>
+
+                <!-- Initial Balance -->
+                <VBox spacing="8">
+                    <Label text="Solde initial *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <TextField fx:id="initialBalanceField"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               promptText="0.00"
+                               prefWidth="300" />
+                </VBox>
+
+                <!-- Currency -->
+                <VBox spacing="8">
+                    <Label text="Devise *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <ComboBox fx:id="currencyCombo"
+                              style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                              prefWidth="300" />
+                </VBox>
+
+                <!-- Current Account Specific -->
+                <VBox fx:id="currentAccountSection" spacing="15" visible="false">
+                    <Label text="Options Compte Courant"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Découvert autorisé"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="overdraftField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="0.00"
+                                   prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Frais mensuels"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="monthlyFeeField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="0.00"
+                                   prefWidth="300" />
+                    </VBox>
+                </VBox>
+
+                <!-- Savings Account Specific -->
+                <VBox fx:id="savingsAccountSection" spacing="15" visible="false">
+                    <Label text="Options Compte Épargne"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Taux d'intérêt (%)"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="interestRateField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="0.0"
+                                   prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Solde minimum"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="minimumBalanceField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="0.00"
+                                   prefWidth="300" />
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="15" style="-fx-padding: 20; -fx-alignment: CENTER_RIGHT;">
+            <Button text="Annuler"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+            <Button text="Ajouter le compte"
+                    style="-fx-background-color: #47b14f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-weight: bold;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f8f9fa;">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label text="Nouvelle Transaction"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #47b14f;" />
+            <Label text="Ajoutez une nouvelle dépense, revenu ou transfert"
+                   style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-border-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 20;">
+
+                <!-- Type de Transaction -->
+                <VBox spacing="8">
+                    <Label text="Type de transaction *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <ComboBox fx:id="transactionTypeCombo"
+                              style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                              prefWidth="300" />
+                </VBox>
+
+                <!-- Montant -->
+                <VBox spacing="8">
+                    <Label text="Montant *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <TextField fx:id="amountField"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               promptText="0.00"
+                               prefWidth="300" />
+                </VBox>
+
+                <!-- Description -->
+                <VBox spacing="8">
+                    <Label text="Description *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <TextField fx:id="descriptionField"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               promptText="Description de la transaction..."
+                               prefWidth="300" />
+                </VBox>
+
+                <!-- Date -->
+                <VBox spacing="8">
+                    <Label text="Date *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <DatePicker fx:id="datePicker"
+                                style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                prefWidth="300" />
+                </VBox>
+
+                <!-- Catégorie -->
+                <VBox spacing="8">
+                    <Label text="Catégorie *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <ComboBox fx:id="categoryCombo"
+                              style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                              prefWidth="300" />
+                </VBox>
+
+                <!-- Compte -->
+                <VBox spacing="8">
+                    <Label text="Compte *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                    <ComboBox fx:id="accountCombo"
+                              style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                              prefWidth="300" />
+                </VBox>
+
+                <!-- Section supplémentaire pour les dépenses -->
+                <VBox fx:id="expenseSection" spacing="15" visible="false">
+                    <Label text="Détails de la dépense"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Commerçant"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="merchantField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="Nom du commerçant..."
+                                   prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Méthode de paiement"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <ComboBox fx:id="paymentMethodCombo"
+                                  style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                  prefWidth="300" />
+                    </VBox>
+
+                    <HBox spacing="10">
+                        <CheckBox fx:id="taxDeductibleCheck"
+                                  text="Déductible des impôts"
+                                  style="-fx-text-fill: #333;" />
+                    </HBox>
+                </VBox>
+
+                <!-- Section supplémentaire pour les revenus -->
+                <VBox fx:id="incomeSection" spacing="15" visible="false">
+                    <Label text="Détails du revenu"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Source du revenu"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <ComboBox fx:id="incomeSourceCombo"
+                                  style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                  prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Payeur"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="payerField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="Nom du payeur..."
+                                   prefWidth="300" />
+                    </VBox>
+
+                    <HBox spacing="10">
+                        <CheckBox fx:id="recurringIncomeCheck"
+                                  text="Revenu récurrent"
+                                  style="-fx-text-fill: #333;" />
+                    </HBox>
+                </VBox>
+
+                <!-- Section supplémentaire pour les transferts -->
+                <VBox fx:id="transferSection" spacing="15" visible="false">
+                    <Label text="Détails du transfert"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Compte destination *"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <ComboBox fx:id="toAccountCombo"
+                                  style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                  prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Frais de transfert"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="transferFeesField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="0.00"
+                                   prefWidth="300" />
+                    </VBox>
+                </VBox>
+
+                <!-- Tags et Notes -->
+                <VBox spacing="15">
+                    <Label text="Informations supplémentaires"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;" />
+
+                    <VBox spacing="8">
+                        <Label text="Tags"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextField fx:id="tagsField"
+                                   style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                   promptText="tag1, tag2, tag3..."
+                                   prefWidth="300" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Notes"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                        <TextArea fx:id="notesArea"
+                                  style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                                  promptText="Notes supplémentaires..."
+                                  prefWidth="300"
+                                  prefRowCount="3"
+                                  wrapText="true" />
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="15" style="-fx-padding: 20; -fx-alignment: center-right;">
+            <Button text="Annuler"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;"
+                     />
+            <Button text="Ajouter la transaction"
+                    style="-fx-background-color: #47b14f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-weight: bold;"
+                     />
+        </HBox>
+    </bottom>
+
+</BorderPane>

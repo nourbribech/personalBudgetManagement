@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f8f9fa;">
+
+    <!-- Header -->
+    <top>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label text="Nouveau Budget"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #47b14f;" />
+            <Label text="Créez un nouveau budget avec un objectif et une période"
+                   style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        </VBox>
+    </top>
+
+    <!-- Form -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-border-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 20;">
+
+                <!-- Budget Name -->
+                <VBox spacing="8">
+                    <Label text="Nom du budget *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                    <TextField fx:id="budgetNameField"
+                               promptText="Ex: Budget Mensuel Général"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               prefWidth="300"/>
+                </VBox>
+
+                <!-- Income -->
+                <VBox spacing="8">
+                    <Label text="Revenu Total *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                    <TextField fx:id="incomeField"
+                               promptText="0.00"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               prefWidth="300"/>
+                </VBox>
+
+                <!-- Savings Target -->
+                <VBox spacing="8">
+                    <Label text="Objectif d'Épargne"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                    <TextField fx:id="savingsTargetField"
+                               promptText="0.00"
+                               style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;"
+                               prefWidth="300"/>
+                </VBox>
+
+                <!-- Budget Period -->
+                <VBox spacing="8">
+                    <Label text="Période du budget *"
+                           style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                    <HBox spacing="10">
+                        <DatePicker fx:id="startDatePicker"
+                                    promptText="Début"
+                                    style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5;"
+                                    prefWidth="140"/>
+                        <DatePicker fx:id="endDatePicker"
+                                    promptText="Fin"
+                                    style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5;"
+                                    prefWidth="140"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Budget Rules Section -->
+                <VBox spacing="15">
+                    <Label text="Règles du Budget"
+                           style="-fx-font-weight: bold; -fx-text-fill: #47b14f; -fx-font-size: 16px;"/>
+
+                    <CheckBox fx:id="allowOverBudgetCheck"
+                              text="Autoriser le dépassement du budget" />
+
+                    <CheckBox fx:id="autoAdjustCheck"
+                              text="Ajustement automatique des catégories" />
+
+                    <CheckBox fx:id="rolloverCheck"
+                              text="Reporter le surplus au prochain budget" />
+
+                    <VBox spacing="8">
+                        <Label text="Seuil d'alerte (%)"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                        <TextField fx:id="alertThresholdField"
+                                   promptText="Ex: 80"
+                                   prefWidth="300"/>
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Période de grâce (jours)"
+                               style="-fx-font-weight: bold; -fx-text-fill: #333; -fx-font-size: 14px;"/>
+                        <TextField fx:id="gracePeriodField"
+                                   promptText="Ex: 3"
+                                   prefWidth="300"/>
+                    </VBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Buttons -->
+    <bottom>
+        <HBox spacing="15" style="-fx-padding: 20; -fx-alignment: center-right;">
+            <Button text="Annuler"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+
+            <Button text="Créer le Budget"
+                    fx:id="createBudgetButton"
+                    style="-fx-background-color: #47b14f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-weight: bold;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

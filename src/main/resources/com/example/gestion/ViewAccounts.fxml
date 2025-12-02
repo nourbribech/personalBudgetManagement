@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f8f9fa;">
+
+    <top>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label text="Mes Comptes"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #47b14f;" />
+            <Label text="Visualisez et gérez vos comptes bancaires"
+                   style="-fx-text-fill: #666; -fx-font-size: 14px;" />
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="accountsTable" style="-fx-background-color: white; -fx-border-color: #ddd;">
+            <columns>
+                <TableColumn fx:id="accountNameCol" text="Nom du compte" prefWidth="150"/>
+                <TableColumn fx:id="accountTypeCol" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="currencyCol" text="Devise" prefWidth="100"/>
+                <TableColumn fx:id="balanceCol" text="Solde" prefWidth="100"/>
+                <TableColumn fx:id="statusCol" text="Statut" prefWidth="100"/>
+                <TableColumn fx:id="creationDateCol" text="Date de création" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="15" style="-fx-padding: 20; -fx-alignment: center-right;">
+            <Button text="Fermer"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20;" />
+            <Button text="Ajouter un compte"
+                    style="-fx-background-color: #47b14f; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-weight: bold;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
